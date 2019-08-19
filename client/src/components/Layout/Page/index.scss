@@ -1,0 +1,39 @@
+@import "styles/variables.scss";
+.page {
+	display: flex;
+	flex-direction: column;
+	background-color: $page-bg;
+	overflow-y: auto !important;
+	position: relative;
+	.page-content {
+	}
+}
+.page.is-fullheight {
+	flex-grow: 2;
+}
+
+.page.content-centered-x {
+	align-items: center;
+	.page-content {
+	}
+}
+
+.page.content-centered-y {
+	justify-content: center;
+	.page-content {
+	}
+}
+
+.page.content-centered-xy {
+	.page-content {
+		margin: auto;
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.page.content-centered-xy {
+		.page-content {
+			margin: auto $margin-md !important;
+		}
+	}
+}

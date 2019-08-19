@@ -1,0 +1,39 @@
+@import "styles/variables.scss";
+
+// Default button
+.button {
+	padding: 0.375rem 0.675rem;
+	background-color: #ffffff;
+	border: solid 1px $light;
+	text-decoration: none;
+	border-radius: $radius-md;
+	color: $dark-grey;
+	line-height: 1.4;
+	box-sizing: border-box;
+	cursor: pointer;
+}
+
+.button:hover {
+	border-color: $grey;
+}
+
+// Primary button
+.button.is-primary {
+	background-color: $primary;
+	color: #fff;
+	border: none;
+}
+
+.button.is-primary.is-outlined {
+	border: solid 2px $primary !important;
+	background-color: transparent;
+	color: $primary;
+	padding: calc(0.375rem - 2px) calc(0.675rem - 2px);
+	font-weight: 500;
+}
+
+.button.is-primary.is-outlined:hover {
+	border-color: $primary;
+	background-color: $primary;
+	color: #fff;
+}

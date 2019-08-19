@@ -1,0 +1,61 @@
+import {
+	_ACTIONCONST__LOADING,
+	CREATE__ACTIONCONST_,
+	GET__ACTIONCONST_S,
+	GET__ACTIONCONST_,
+	DELETE__ACTIONCONST_,
+	UPDATE__ACTIONCONST_
+
+} from "actions/types";
+
+const initialState = {
+	_STATE_NAME_s: [],
+	_STATE_NAME_: {},
+	loading: false
+};
+
+export default function(state = initialState, action) {
+	switch (action.type) {
+		case _ACTIONCONST__LOADING:
+			return {
+				...state,
+				loading: true
+			};
+
+		case GET__ACTIONCONST_S:
+			return {
+				...state,
+				loading: false,
+				_STATE_NAME_s: action.payload
+			};
+		case GET__ACTIONCONST_:
+			return {
+				...state,
+				loading: false,
+				_STATE_NAME_: action.payload
+			};
+		case UPDATE__ACTIONCONST_:
+			return {
+				...state,
+				loading: false,
+				_STATE_NAME_s: [
+					...state._STATE_NAME_s.filter(
+						_STATE_NAME_ => _STATE_NAME_._id !== action.payload_id
+					),
+					action.payload
+				]
+			};
+		case DELETE__ACTIONCONST_:
+			return {
+				...state,
+				_STATE_NAME_s: state._STATE_NAME_s.filter(_STATE_NAME_ => _STATE_NAME_._id !== action.payload)
+			};
+		case CREATE__ACTIONCONST_:
+			return {
+				...state,
+				_STATE_NAME_s: [action.payload, ...state._STATE_NAME_s]
+			};
+		default:
+			return state;
+	}
+}

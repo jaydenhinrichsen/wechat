@@ -1,0 +1,38 @@
+@import "styles/variables.scss";
+
+// Default field with label
+.field {
+	display: block;
+	.label {
+		margin-bottom: 0.5rem;
+		display: block;
+		font-size: 1rem;
+		font-weight: 500;
+		color: $dark;
+		.control {
+			text-align: left;
+			position: relative;
+			box-sizing: border-box;
+			display: block;
+		}
+	}
+}
+
+// Horizontal field with label
+.field.is-horizontal {
+	display: flex;
+	width: 100%;
+	flex-direction: row;
+	align-items: center;
+	.label {
+		flex-grow: 1;
+	}
+
+	.control {
+		flex-grow: 5;
+	}
+}
+
+.field:not(:last-child) {
+	margin-bottom: 0.75rem;
+}

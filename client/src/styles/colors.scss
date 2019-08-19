@@ -1,0 +1,38 @@
+@import "styles/variables.scss";
+.text-primary {
+	color: $primary;
+}
+.text-dark {
+	color: $dark;
+}
+.text-dark-grey {
+	color: $dark-grey;
+}
+.text-grey {
+	color: $grey;
+}
+.text-light {
+	color: $light;
+}
+.text-white {
+	color: #fff;
+}
+
+.bg-primary {
+	color: $primary;
+}
+.bg-dark {
+	color: $dark;
+}
+.bg-dark-grey {
+	color: $dark-grey;
+}
+.bg-grey {
+	color: $grey;
+}
+.bg-light {
+	color: $light;
+}
+.bg-white {
+	color: #fff;
+}

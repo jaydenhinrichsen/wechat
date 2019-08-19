@@ -1,0 +1,8 @@
+@import "styles/variables.scss";
+
+.box {
+	background-color: #fff;
+	box-shadow: $shadow-sm;
+	border-radius: $radius-md;
+	padding: $padding-md;
+}

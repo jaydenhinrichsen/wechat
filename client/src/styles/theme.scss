@@ -1,0 +1,30 @@
+@import "styles/variables.scss";
+
+// Elements
+a {
+	color: $primary;
+}
+
+a:hover {
+	color: $dark;
+	text-decoration: underline;
+}
+
+.is-fullwidth {
+	width: 100%;
+}
+
+.small-form {
+	min-width: 300px;
+}
+
+.med-form {
+	min-width: 600px;
+}
+
+@media screen and (max-width: 600px) {
+	.med-form,
+	.small-form {
+		min-width: inherit;
+	}
+}

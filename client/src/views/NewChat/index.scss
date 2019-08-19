@@ -1,0 +1,32 @@
+@import "styles/variables.scss";
+.category-widget {
+	position: relative;
+	.new-category {
+		display: flex;
+		flex-direction: row;
+		.input {
+			border-radius: 4px 0px 0px 4px;
+			border-right: none;
+		}
+		.button {
+			border-radius: 0px 4px 4px 0px;
+			font-size: 15px;
+		}
+	}
+}
+
+.category-results {
+	width: 100%;
+	position: absolute;
+	left: 0;
+	top: 100%;
+	background-color: #fff;
+	max-height: 250px;
+	overflow-y: auto;
+	margin-top: 5px;
+	border-radius: 4px;
+	box-shadow: $shadow-sm, 0px 3px 15px rgba(0, 0, 0, 0.05);
+	li {
+		margin: 0.75rem 1.5rem;
+	}
+}

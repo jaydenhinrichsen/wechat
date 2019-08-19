@@ -1,0 +1,9 @@
+.center-y {
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+}
+
+.center-y.is-fullheight {
+	height: 100%;
+}

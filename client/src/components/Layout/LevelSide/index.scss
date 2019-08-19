@@ -1,0 +1,24 @@
+.level-left,
+.level-right {
+	flex-basis: auto;
+	flex-grow: 0;
+	flex-shrink: 0;
+	.level-item {
+		align-items: center;
+		display: flex;
+		flex-basis: auto;
+		flex-grow: 0;
+		flex-shrink: 0;
+		justify-content: center;
+	}
+}
+
+.level-left {
+	justify-content: flex-start;
+	align-items: center;
+}
+
+.level-right {
+	justify-content: flex-end;
+	align-items: center;
+}

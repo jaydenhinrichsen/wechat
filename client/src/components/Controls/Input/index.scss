@@ -1,0 +1,9 @@
+@import "styles/variables.scss";
+.input {
+	-webkit-appearance: none !important;
+	border: solid 1px $light;
+	font-size: 15px;
+	padding: 0.475rem 0.675rem;
+	border-radius: $radius-md;
+	width: 100%;
+}

@@ -1,0 +1,121 @@
+import axios from "axios";
+import {
+	_ACTIONCONST__LOADING,
+	DELETE__ACTIONCONST_,
+	CREATE__ACTIONCONST_,
+	GET__ACTIONCONST_,
+	GET__ACTIONCONST_S,
+	UPDATE__ACTIONCONST_,
+	GET_ERRORS,
+	CLEAR_ERRORS
+} from "./types";
+
+_ACTIONCONST_;
+_FUNCNAME_;
+_APIROUTE_;
+_SINGLE_PARAM_;
+
+// Create _FUNCNAME_
+export const create_FUNCNAME_ = (data, history) => dispatch => {
+	axios
+		.post(`/api/_APIROUTE_/`, data)
+		.then(res =>
+			dispatch({
+				type: CREATE__ACTIONCONST_,
+				payload: res.data
+			})
+		)
+		.catch(err =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		);
+};
+
+// Create _FUNCNAME_
+export const get_FUNCNAME_ = _SINGLE_PARAM_ => dispatch => {
+	dispatch(set_FUNCNAME_Loading());
+	axios
+		.get(`/api/_APIROUTE_/single/${_SINGLE_PARAM_}`)
+		.then(res =>
+			dispatch({
+				type: GET__ACTIONCONST_,
+				payload: res.data
+			})
+		)
+		.catch(err =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		);
+};
+
+// Get _FUNCNAME_s
+export const get_FUNCNAME_s = (user) => dispatch => {
+	dispatch(set_FUNCNAME_Loading());
+	axios
+		.get(`/api/_APIROUTE_/all/${user}`)
+		.then(res =>
+			dispatch({
+				type: GET__ACTIONCONST_S,
+				payload: res.data
+			})
+		)
+		.catch(err =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		);
+};
+
+// Update _FUNCNAME_
+export const update_FUNCNAME_ = data => dispatch => {
+	dispatch(set_FUNCNAME_Loading());
+	axios
+		.put(`/api/_APIROUTE_/`, data)
+		.then(res =>
+			dispatch({
+				type: UPDATE__ACTIONCONST_,
+				payload: res.data
+			})
+		)
+		.catch(err =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		);
+};
+
+// Delete _FUNCNAME_
+export const delete_FUNCNAME_ = _SINGLE_PARAM_ => dispatch => {
+	axios
+		.delete(`/api/_APIROUTE_/${_SINGLE_PARAM_}`)
+		.then(res =>
+			dispatch({
+				type: DELETE__ACTIONCONST_,
+				payload: res.data
+			})
+		)
+		.catch(err =>
+			dispatch({
+				type: GET_ERRORS,
+				payload: err.response.data
+			})
+		);
+};
+
+export const set_FUNCNAME_Loading = () => {
+	return {
+		type: _ACTIONCONST__LOADING
+	};
+};
+
+export const clearErrors = () => {
+	return {
+		type: CLEAR_ERRORS
+	};
+};

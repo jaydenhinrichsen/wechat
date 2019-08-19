@@ -1,0 +1,96 @@
+@import "styles/variables.scss";
+.sidebar-container {
+	position: relative;
+	width: $sidebar-width;
+	flex-shrink: 0;
+	box-shadow: 1px 0px 3px rgba(0, 0, 0, 0.05);
+	z-index: 1000;
+	.sidebar {
+		position: fixed;
+		left: 0;
+		top: 0;
+		width: $sidebar-width;
+		height: 100vh;
+		display: flex;
+		z-index: 10000;
+		background-color: #fff;
+		flex-direction: column;
+		.brand {
+			width: 100%;
+			text-align: center;
+			height: $topbar-height;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			p {
+				font-weight: 700;
+			}
+		}
+
+		.link {
+			a {
+				padding: $padding-sm $padding-md;
+				display: block;
+				color: $dark-grey;
+			}
+			a.is-current {
+				border-left: solid 3px $primary;
+				color: $primary;
+				padding-left: calc($padding-md - 3px);
+			}
+			a:hover {
+				color: $primary;
+			}
+		}
+		.top-links {
+			justify-self: flex-start;
+			flex-grow: 2;
+		}
+		.bottom-links {
+			justify-self: flex-end;
+		}
+	}
+}
+
+.mobile-nav {
+	box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.05);
+	position: relative;
+	z-index: 10000;
+	height: $topbar-height;
+	i {
+		color: $dark-grey;
+		font-size: $font-size-4;
+	}
+}
+
+.mobile-nav-menu {
+	position: absolute;
+	height: 50%;
+	width: 200px;
+	top: $topbar-height;
+	right: 0;
+	z-index: 10000;
+	background-color: #fff;
+}
+
+@media screen and (max-width: 600px) {
+	.sidebar-container {
+		width: 100%;
+		height: $topbar-height;
+		position: relative;
+		.sidebar {
+			position: relative;
+			flex-direction: row;
+			height: 100%;
+			.brand {
+				display: none;
+			}
+			.link,
+			a {
+				height: 100%;
+				display: inline-block;
+				padding: 0 !important;
+			}
+		}
+	}
+}

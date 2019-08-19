@@ -1,0 +1,16 @@
+@import "styles/variables.scss";
+
+.page-topbar {
+	height: $topbar-height !important;
+	flex-shrink: 0;
+	.page-title {
+		font-size: 1.5rem;
+		font-weight: 500;
+	}
+}
+@media screen and (max-width: 600px) {
+	.page-topbar {
+		height: auto !important;
+		margin: $margin-sm $margin-md !important;
+	}
+}
