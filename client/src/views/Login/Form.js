@@ -8,14 +8,14 @@ import Heading from "components/Heading";
 import { Input, Label, Button } from "components/Controls";
 import { Level, LevelSide } from "components/Layout";
 
-const Form = ({ fields, handleChange, handleSubmit }) => {
+const Form = ({ fields, handleChange, handleSubmit, errors }) => {
 	return (
 		<Box>
 			<Heading size={3} weight={500} className="text-center">
 				Login
 			</Heading>
 			<form className="small-form" onSubmit={e => handleSubmit(e)}>
-				<Label label="Email">
+				<Label label="Email" error={errors.email}>
 					<Input
 						type="email"
 						handleChange={(name, value) => handleChange(name, value)}
@@ -23,7 +23,7 @@ const Form = ({ fields, handleChange, handleSubmit }) => {
 						name="email"
 					/>
 				</Label>
-				<Label label="Password">
+				<Label label="Password" error={errors.password}>
 					<Input
 						type="text"
 						handleChange={(name, value) => handleChange(name, value)}

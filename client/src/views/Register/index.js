@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { motion } from "framer-motion";
 
 // Actions
 import { registerUser } from "actions/authActions";
@@ -38,18 +37,16 @@ class Register extends Component {
 		this.props.registerUser(this.state, this.props.history);
 	}
 	render() {
+		const { errors } = this.props;
 		return (
-			<div className="view">
-				<div className="view-with-layout">
-					<Page centerX centerY isFullheight>
-						<Form
-							fields={this.state}
-							handleChange={(name, value) => this.handleChange(name, value)}
-							handleSubmit={e => this.handleSubmit(e)}
-						/>
-					</Page>
-				</div>
-			</div>
+			<Page centerX centerY isFullheight>
+				<Form
+					fields={this.state}
+					errors={errors}
+					handleChange={(name, value) => this.handleChange(name, value)}
+					handleSubmit={e => this.handleSubmit(e)}
+				/>
+			</Page>
 		);
 	}
 }

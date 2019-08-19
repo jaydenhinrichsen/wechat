@@ -37,22 +37,28 @@ class NewChat extends Component {
 
 	handleSubmit(e) {
 		e.preventDefault();
-
-		this.props.createChat({ ...this.state, user: this.user });
-		this.props.history.push("/explore");
+		this.props.createChat(
+			{
+				name: this.state.name,
+				category: this.state.category._id,
+				user: this.user
+			},
+			this.props.history
+		);
 	}
 	render() {
+		console.log(this.state);
+		const { errors } = this.props;
 		return (
-
-				<Page centerX centerY isFullheight>
-					<Form
-						user={this.user}
-						fields={this.state}
-						handleChange={(name, value) => this.handleChange(name, value)}
-						handleSubmit={e => this.handleSubmit(e)}
-					/>
-				</Page>
-	
+			<Page centerX centerY isFullheight>
+				<Form
+					user={this.user}
+					errors={errors}
+					fields={this.state}
+					handleChange={(name, value) => this.handleChange(name, value)}
+					handleSubmit={e => this.handleSubmit(e)}
+				/>
+			</Page>
 		);
 	}
 }
@@ -70,5 +76,5 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
-	{ createChat,  }
+	{ createChat }
 )(withRouter(withSidebar(NewChat)));

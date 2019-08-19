@@ -16,16 +16,20 @@
 			display: block;
 		}
 	}
+	.input-error {
+		margin-top: 0.25rem;
+	}
 }
 
 // Horizontal field with label
-.field.is-horizontal {
+.horizontal-input-container {
 	display: flex;
 	width: 100%;
 	flex-direction: row;
 	align-items: center;
 	.label {
 		flex-grow: 1;
+		margin: 0;
 	}
 
 	.control {

@@ -111,107 +111,140 @@ class CategoryWidget extends Component {
 			newCategoryName
 		} = this.state;
 		const { selectedCategory } = this.props;
-		return (
-			<div className="category-widget">
-				{formIsOpen ? (
-					<>
-						<Level>
-							<LevelSide side="left">
-								<Label label="Name" className="is-marginless" />
-							</LevelSide>
-							<LevelSide side="right">
-								<a
-									className="m-b-sm"
-									onClick={() => this.setState({ formIsOpen: false })}
-								>
-									Cancel
-								</a>
-							</LevelSide>
-						</Level>
-						<div className="new-category">
+		if (isEmpty(selectedCategory)) {
+			return (
+				<div className="category-widget">
+					{formIsOpen ? (
+						<>
+							<Level>
+								<LevelSide side="left">
+									<Label label="Name" className="is-marginless" />
+								</LevelSide>
+								<LevelSide side="right">
+									<a
+										className="m-b-sm"
+										onClick={() => this.setState({ formIsOpen: false })}
+									>
+										Cancel
+									</a>
+								</LevelSide>
+							</Level>
+							<div className="new-category">
+								<Input
+									type="text"
+									value={newCategoryName}
+									handleChange={(name, value) => this.handleChange(name, value)}
+									placeholder="New category name"
+									name="newCategoryName"
+									autoComplete="off"
+									aria-haspopup="false"
+									autoCorrect="off"
+									autoCapitalize="off"
+									aria-autocomplete="both"
+								/>
+								<Button onClick={e => this.handleCreateCategory(e)}>
+									Create
+								</Button>
+							</div>
+						</>
+					) : (
+						<div ref={c => (this.search = c)}>
+							<Level>
+								<LevelSide side="left">
+									<Label label="Category" className="is-marginless" />
+								</LevelSide>
+								<LevelSide side="right">
+									<a
+										className="m-b-sm"
+										onClick={() => this.setState({ formIsOpen: true })}
+									>
+										Create New
+									</a>
+								</LevelSide>
+							</Level>
+							<input type="hidden" name="search" value={search} />
 							<Input
 								type="text"
-								value={newCategoryName}
-								handleChange={(name, value) => this.handleChange(name, value)}
-								placeholder="New category name"
-								name="newCategoryName"
+								value={search}
+								handleChange={(name, value) => this.handleSearch(name, value)}
+								placeholder="Search categories"
+								name="search"
 								autoComplete="off"
 								aria-haspopup="false"
-								autocorrect="off"
-								autocapitalize="off"
+								autoCorrect="off"
+								autoCapitalize="off"
 								aria-autocomplete="both"
+								className={searchIsOpen ? "focused" : ""}
 							/>
-							<Button onClick={e => this.handleCreateCategory(e)}>
-								Create
-							</Button>
+
+							{searchIsOpen && (
+								<ul className="category-results">
+									<AnimatePresence>
+										{results.map((category, i) => (
+											<motion.li
+												key={i}
+												positionTransition
+												initial={{ opacity: 0 }}
+												exit={{ opacity: 0 }}
+												animate={{ opacity: 1 }}
+												transition={{ type: "tween", duration: 0.2 }}
+											>
+												<Level isMarginless>
+													<LevelSide side="left">
+														<p>{category.name}</p>
+													</LevelSide>
+													<LevelSide side="right">
+														<Button
+															className="is-size-7"
+															onClick={() =>
+																this.handleAddCategory("category", category)
+															}
+														>
+															Add
+														</Button>
+													</LevelSide>
+												</Level>
+											</motion.li>
+										))}
+									</AnimatePresence>
+								</ul>
+							)}
 						</div>
-					</>
-				) : (
-					<div ref={c => (this.search = c)}>
-						<Level>
-							<LevelSide side="left">
-								<Label label="Category" className="is-marginless" />
-							</LevelSide>
-							<LevelSide side="right">
-								<a
-									className="m-b-sm"
-									onClick={() => this.setState({ formIsOpen: true })}
-								>
-									Create New
-								</a>
-							</LevelSide>
-						</Level>
-						<input type="hidden" name="search" value={search} />
+					)}
+				</div>
+			);
+		} else {
+			return (
+				<>
+					<Level>
+						<LevelSide side="left">
+							<Label label="Category" className="is-marginless" />
+						</LevelSide>
+						<LevelSide side="right">
+							<a
+								className="m-b-sm"
+								onClick={() => this.setState({ formIsOpen: true })}
+							>
+								Create New
+							</a>
+						</LevelSide>
+					</Level>
+					<div className="disabled-input-container">
 						<Input
 							type="text"
-							value={search}
+							value={selectedCategory}
 							handleChange={(name, value) => this.handleSearch(name, value)}
-							placeholder="Search categories"
-							name="search"
-							autoComplete="off"
-							aria-haspopup="false"
-							autocorrect="off"
-							autocapitalize="off"
-							aria-autocomplete="both"
-							className={searchIsOpen ? "focused" : ""}
+							disabled
+							name="name"
 						/>
-
-						{searchIsOpen && (
-							<ul className="category-results">
-								<AnimatePresence>
-									{results.map((category, i) => (
-										<motion.li
-											key={i}
-											positionTransition
-											initial={{ opacity: 0 }}
-											exit={{ opacity: 0 }}
-											animate={{ opacity: 1 }}
-											transition={{ type: "tween", duration: 0.2 }}
-										>
-											<Level isMarginless>
-												<LevelSide side="left">
-													<p>{category.name}</p>
-												</LevelSide>
-												<LevelSide side="right">
-													<Button
-														className="is-size-7"
-														onClick={() =>
-															this.handleAddCategory("category", category)
-														}
-													>
-														Add
-													</Button>
-												</LevelSide>
-											</Level>
-										</motion.li>
-									))}
-								</AnimatePresence>
-							</ul>
-						)}
+						<i
+							className="fas fa-times clear-selected-category"
+							onClick={() => this.handleAddCategory("category", "")}
+						/>
 					</div>
-				)}
-			</div>
-		);
+				</>
+			);
+		}
 	}
 }
 

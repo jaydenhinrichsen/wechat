@@ -1,5 +1,4 @@
 import React, { forwardRef } from "react";
-import { format } from "date-fns";
 // Utils
 import formatTimeStamp from "utils/formatTimeStamp";
 const Messages = forwardRef(({ messages, user }, ref) => {

@@ -8,9 +8,9 @@ import { Page } from "components/Layout";
 import { Button, ButtonGroup } from "components/Controls";
 import Heading from "components/Heading";
 
-const Landing = ({}) => {
+const Landing = () => {
 	return (
-		<Page centerY centerX>
+		<Page centerY centerX isFullheight>
 			<Heading size={1}>Websockets Chat Application</Heading>
 			<ButtonGroup>
 				<Button href={paths.register.path}>Register</Button>

@@ -7,14 +7,14 @@ import Heading from "components/Heading";
 import { Input, Label, Button } from "components/Controls";
 import { Level, LevelSide } from "components/Layout";
 
-const Form = ({ fields, handleChange, handleSubmit }) => {
+const Form = ({ fields, handleChange, handleSubmit, errors }) => {
 	return (
 		<Box>
 			<Heading size={3} weight={500} className="text-center">
 				Register
 			</Heading>
 			<form className="small-form" onSubmit={e => handleSubmit(e)}>
-				<Label label="First Name">
+				<Label label="First Name" error={errors.firstName}>
 					<Input
 						type="text"
 						placeholder="Albert"
@@ -23,7 +23,7 @@ const Form = ({ fields, handleChange, handleSubmit }) => {
 						name="firstName"
 					/>
 				</Label>
-				<Label label="Last Name">
+				<Label label="Last Name" error={errors.lastName}>
 					<Input
 						type="text"
 						placeholder="Einstein"
@@ -32,7 +32,7 @@ const Form = ({ fields, handleChange, handleSubmit }) => {
 						name="lastName"
 					/>
 				</Label>
-				<Label label="Email">
+				<Label label="Email" error={errors.email}>
 					<Input
 						type="email"
 						placeholder="example@gmail.com"
@@ -41,7 +41,7 @@ const Form = ({ fields, handleChange, handleSubmit }) => {
 						name="email"
 					/>
 				</Label>
-				<Label label="Password">
+				<Label label="Password" error={errors.password}>
 					<Input
 						type="text"
 						handleChange={(name, value) => handleChange(name, value)}
@@ -49,7 +49,7 @@ const Form = ({ fields, handleChange, handleSubmit }) => {
 						name="password"
 					/>
 				</Label>
-				<Label label="Confirm Password">
+				<Label label="Confirm Password" error={errors.confirmPassword}>
 					<Input
 						type="text"
 						handleChange={(name, value) => handleChange(name, value)}

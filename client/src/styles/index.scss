@@ -18,6 +18,12 @@ body,
 #root {
 	overflow-y: auto !important;
 	color: #4a4a4a;
+	min-height: 100vh;
+}
+
+#root {
+	display: flex;
+	flex-direction: column;
 }
 
 /*! minireset.css v0.0.5 | MIT License | github.com/jgthms/minireset.css */

@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { motion } from "framer-motion";
 
 // Actions
 import { loginUser } from "actions/authActions";
 // Components
 import Form from "./Form";
 import { Page } from "components/Layout";
+import Loading from "components/Loading";
 
 /**
  * Login
@@ -30,23 +30,25 @@ class Login extends Component {
 	handleSubmit(e) {
 		e.preventDefault();
 
-		this.props.loginUser(this.state);
-		this.props.history.push("/dashboard");
+		this.props.loginUser(this.state, this.props.history);
 	}
 	render() {
-		return (
-			<div className="view">
-				<div className="view-with-layout">
-					<Page centerX centerY isFullheight>
-						<Form
-							fields={this.state}
-							handleChange={(name, value) => this.handleChange(name, value)}
-							handleSubmit={e => this.handleSubmit(e)}
-						/>
-					</Page>
-				</div>
-			</div>
-		);
+		const { errors } = this.props;
+		const { loading, loaded } = this.props.auth;
+		if (loading && !loaded) {
+			return <Loading />;
+		} else {
+			return (
+				<Page centerX centerY isFullheight>
+					<Form
+						fields={this.state}
+						errors={errors}
+						handleChange={(name, value) => this.handleChange(name, value)}
+						handleSubmit={e => this.handleSubmit(e)}
+					/>
+				</Page>
+			);
+		}
 	}
 }
 

@@ -1,0 +1,37 @@
+@import "styles/variables.scss";
+.footer {
+	display: flex;
+	flex-direction: row;
+	padding: $padding-sm $padding-md;
+	.footer-left,
+	.footer-right {
+		display: flex;
+		flex-direction: row;
+	}
+
+	.footer-left {
+		flex-grow: 2;
+		justify-self: flex-start;
+		a {
+			margin-right: $margin-sm;
+		}
+	}
+	.footer-right {
+		flex-grow: 0;
+		justify-self: flex-end;
+		a {
+			margin-left: $margin-sm;
+		}
+	}
+}
+
+@media screen and (max-width: 600px) {
+	.footer {
+		justify-content: center;
+		.footer-left,
+		.footer-right {
+			justify-self: center;
+			flex-grow: 0;
+		}
+	}
+}

@@ -3,22 +3,27 @@
 	flex-basis: auto;
 	flex-grow: 0;
 	flex-shrink: 0;
+	flex-direction: row;
 	.level-item {
-		align-items: center;
+		// align-items: center;
 		display: flex;
-		flex-basis: auto;
+		// flex-basis: auto;
 		flex-grow: 0;
 		flex-shrink: 0;
-		justify-content: center;
 	}
 }
 
 .level-left {
 	justify-content: flex-start;
-	align-items: center;
+	align-items: left;
+	.level-item {
+		justify-content: flex-start;
+	}
 }
 
 .level-right {
 	justify-content: flex-end;
-	align-items: center;
+	.level-item {
+		justify-content: flex-end;
+	}
 }

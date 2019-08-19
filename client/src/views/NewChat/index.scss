@@ -15,6 +15,21 @@
 	}
 }
 
+.disabled-input-container {
+	position: relative;
+	.clear-selected-category {
+		position: absolute;
+		right: 0.675rem;
+		cursor: pointer;
+		// color: $danger;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+	.clear-selected-category:hover {
+		color: $danger;
+	}
+}
+
 .category-results {
 	width: 100%;
 	position: absolute;

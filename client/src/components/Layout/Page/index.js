@@ -1,13 +1,16 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-
+import { motion } from "framer-motion";
 // Styles
 import "./index.scss";
 
 const Page = ({ children, className, centerX, centerY, isFullheight }) => {
 	return (
-		<div
+		<motion.div
+			initial={{ opacity: 0 }}
+			animate={{ opacity: 1 }}
+			transition={{ duration: 0.5 }}
 			className={classNames(
 				"page",
 				{
@@ -20,7 +23,7 @@ const Page = ({ children, className, centerX, centerY, isFullheight }) => {
 			)}
 		>
 			<div className="page-content">{children}</div>
-		</div>
+		</motion.div>
 	);
 };
 Page.propTypes = {

@@ -12,15 +12,17 @@ import {
 } from "./types";
 
 // Create Chat
-export const createChat = data => dispatch => {
+export const createChat = (data, history) => dispatch => {
 	axios
 		.post(`/api/chats/`, data)
-		.then(res =>
+		.then(res => {
+			dispatch(clearErrors());
 			dispatch({
 				type: CREATE_CHAT,
 				payload: res.data
-			})
-		)
+			});
+			history.push("/explore");
+		})
 		.catch(err =>
 			dispatch({
 				type: GET_ERRORS,

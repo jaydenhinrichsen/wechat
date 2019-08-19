@@ -1,9 +1,22 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { motion } from "framer-motion";
 
 // Styles
 import "./index.scss";
+
+// FramerMotion Animations
+const container = {
+	hidden: { scale: 0 },
+	show: {
+		opacity: 1,
+		scale: 1,
+		transition: {
+			staggerChildren: 0.1
+		}
+	}
+};
 
 /**
  * BoxGroup
@@ -15,7 +28,16 @@ import "./index.scss";
 
  */
 const BoxGroup = ({ children, className }) => {
-	return <div className={classNames("box-group", className)}>{children}</div>;
+	return (
+		<motion.div
+			variants={container}
+			initial="hidden"
+			animate="show"
+			className={classNames("box-group", className)}
+		>
+			{children}
+		</motion.div>
+	);
 };
 
 BoxGroup.propTypes = {

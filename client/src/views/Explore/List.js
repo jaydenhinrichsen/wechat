@@ -25,6 +25,7 @@ const List = ({ chats, loading, loaded }) => {
 								<Heading className="is-marginless" size={4} weight={500}>
 									{chat.name}
 								</Heading>
+								<p className="is-size-7 text-grey">{chat.category.name}</p>
 							</LevelSide>
 							<LevelSide side="right">
 								<a href={`${paths.chat.path}/${chat._id}`}>Join</a>

@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Sidebar from "components/Sidebar";
 // Styles
 import "./containers.scss";
+import Footer from "components/Footer";
 /**
  * withSidebar
  *
@@ -19,6 +20,7 @@ const withSidebar = WrappedComponent => {
 
 					<div className="view-with-sidebar">
 						<WrappedComponent {...this.props} />
+						<Footer />
 					</div>
 				</div>
 			);

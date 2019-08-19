@@ -4,6 +4,7 @@
 	flex-direction: column;
 	background-color: $page-bg;
 	overflow-y: auto !important;
+	overflow-x: hidden;
 	position: relative;
 	.page-content {
 	}

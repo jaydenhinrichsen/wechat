@@ -4,6 +4,14 @@ import classNames from "classnames";
 
 // Styles
 import "./index.scss";
+import { motion } from "framer-motion";
+
+const item = {
+	hidden: { scale: 0 },
+	show: {
+		scale: 1
+	}
+};
 
 /**
  * Box
@@ -14,11 +22,16 @@ import "./index.scss";
  * @param {string} className
  * @param {any} rest
  */
-const Box = ({ children, className, ...rest }) => {
+const Box = ({ children, className, key, ...rest }) => {
 	return (
-		<div className={classNames("box", className)} {...rest}>
+		<motion.div
+			key={key}
+			variants={item}
+			className={classNames("box", className)}
+			{...rest}
+		>
 			{children}
-		</div>
+		</motion.div>
 	);
 };
 

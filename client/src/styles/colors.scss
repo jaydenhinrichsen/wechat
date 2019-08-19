@@ -2,6 +2,9 @@
 .text-primary {
 	color: $primary;
 }
+.text-danger {
+	color: $danger;
+}
 .text-dark {
 	color: $dark;
 }
@@ -20,6 +23,9 @@
 
 .bg-primary {
 	color: $primary;
+}
+.bg-danger {
+	color: $danger;
 }
 .bg-dark {
 	color: $dark;

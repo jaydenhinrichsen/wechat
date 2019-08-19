@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Route, Switch, Redirect, BrowserRouter } from "react-router-dom";
-import io from "socket.io-client";
 // Utils
 import checkToken from "utils/checkToken";
 
@@ -21,9 +20,6 @@ import NewChat from "views/NewChat";
 import Chat from "views/Chat";
 
 class Router extends Component {
-	constructor(props) {
-		super(props);
-	}
 	componentDidMount() {
 		checkToken();
 	}

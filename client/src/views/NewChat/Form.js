@@ -6,19 +6,15 @@ import Box from "components/Box";
 import Heading from "components/Heading";
 import CategoryWidget from "./CategoryWidget";
 
-const Form = ({ fields, handleChange, handleSubmit, user }) => {
+const Form = ({ fields, handleChange, handleSubmit, user, errors }) => {
 	return (
 		<>
 			<Heading size={3} weight={700} className="text-center">
 				New Chat
 			</Heading>
 			<Box>
-				<form
-					className="small-form"
-					onSubmit={e => handleSubmit(e)}
-					autoComplete="off"
-				>
-					<Label label="Chat Name">
+				<form className="small-form" autoComplete="off">
+					<Label label="Chat Name" error={errors.name}>
 						<Input
 							type="text"
 							placeholder={`${user.firstName} ${user.lastName}'s chat`}
@@ -28,7 +24,7 @@ const Form = ({ fields, handleChange, handleSubmit, user }) => {
 						/>
 					</Label>
 					<CategoryWidget
-						selectedCategory={fields.category}
+						selectedCategory={fields.category.name}
 						handleAddCategory={(name, value) => handleChange(name, value)}
 					/>
 				</form>
@@ -38,7 +34,7 @@ const Form = ({ fields, handleChange, handleSubmit, user }) => {
 				isColor="primary"
 				isOutlined
 				isFullwidth
-				type="submit"
+				onClick={e => handleSubmit(e)}
 			>
 				Continue
 			</Button>
