@@ -4,10 +4,10 @@
 	flex-grow: 0;
 	flex-shrink: 0;
 	flex-direction: row;
+	display: flex;
+	align-items: center;
 	.level-item {
-		// align-items: center;
-		display: flex;
-		// flex-basis: auto;
+		flex-basis: auto;
 		flex-grow: 0;
 		flex-shrink: 0;
 	}
@@ -15,7 +15,6 @@
 
 .level-left {
 	justify-content: flex-start;
-	align-items: left;
 	.level-item {
 		justify-content: flex-start;
 	}

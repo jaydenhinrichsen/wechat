@@ -11,7 +11,7 @@ import { getChats } from "actions/chatActions";
 // Styles
 import "./index.scss";
 // Containers
-import withSidebar from "containers/withSidebar";
+import withLayout from "containers/withLayout";
 
 // Components
 // import ChatsList from "./ChatsList";
@@ -35,7 +35,7 @@ class Explore extends Component {
 	render() {
 		const { chats, loading, loaded } = this.props.chats;
 		return (
-			<Page isFullheight>
+			<Page isFullheight hasFooter>
 				<PageTopbar title="Explore">
 					<Button isOutlined isColor="primary" href={paths.newChat.path}>
 						{paths.newChat.name}
@@ -68,4 +68,4 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{ getChats }
-)(withRouter(withSidebar(Explore)));
+)(withRouter(withLayout(Explore)));

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 
 // Containers
-import withSidebar from "containers/withSidebar";
+import withLayout from "containers/withLayout";
 
 // Styles
 import "./index.scss";
@@ -50,7 +50,7 @@ class NewChat extends Component {
 		console.log(this.state);
 		const { errors } = this.props;
 		return (
-			<Page centerX centerY isFullheight>
+			<Page centerX centerY isFullheight hasFooter>
 				<Form
 					user={this.user}
 					errors={errors}
@@ -77,4 +77,4 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{ createChat }
-)(withRouter(withSidebar(NewChat)));
+)(withRouter(withLayout(NewChat)));

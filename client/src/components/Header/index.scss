@@ -1,0 +1,15 @@
+@import "styles/variables.scss";
+.header {
+	height: $topbar-height;
+	background-color: #fff;
+	// box-shadow: $shadow-sm;
+	position: relative;
+	border-bottom: solid 1px #dbdbdb;
+	z-index: 100;
+	.level-right,
+	.level-left {
+		a {
+			margin-left: $margin-md;
+		}
+	}
+}

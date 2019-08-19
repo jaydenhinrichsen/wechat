@@ -4,8 +4,16 @@ import classNames from "classnames";
 import { motion } from "framer-motion";
 // Styles
 import "./index.scss";
-
-const Page = ({ children, className, centerX, centerY, isFullheight }) => {
+// Components
+import Footer from "components/Footer";
+const Page = ({
+	children,
+	className,
+	centerX,
+	centerY,
+	isFullheight,
+	hasFooter
+}) => {
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -23,6 +31,7 @@ const Page = ({ children, className, centerX, centerY, isFullheight }) => {
 			)}
 		>
 			<div className="page-content">{children}</div>
+			{hasFooter && <Footer />}
 		</motion.div>
 	);
 };

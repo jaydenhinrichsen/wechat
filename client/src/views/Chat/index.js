@@ -14,14 +14,16 @@ import isEmpty from "utils/isEmpty";
 // Styles
 import "./index.scss";
 
+// Containers
+import withLayout from "containers/withLayout";
+
 // Components
-import withSidebar from "containers/withSidebar";
-import PageTopbar from "components/PageTopbar";
 import { Page } from "components/Layout";
 import Messages from "./Messages";
 import { Button } from "components/Controls";
 import Members from "./Members";
 import Loading from "components/Loading";
+import Heading from "components/Heading";
 
 /** 
  * Chat
@@ -124,14 +126,24 @@ class Chat extends Component {
 		};
 
 		// Add this message to the state(because this user sent it)
-		messages.push(newMessage);
-		this.setState({ messages, message: "" });
+		// messages.push(newMessage);
+		// this.setState({ messages, message: "" });
+		this.setState(
+			prevState => {
+				return {
+					messages: [...prevState.messages, newMessage],
+					message: ""
+				};
+			},
+			() =>
+				(this.messagesContainer.current.scrollTop = this.messagesContainer.current.scrollHeight)
+		);
 
 		// Emit the message to the server
 		this.socket.emit("message", newMessage);
 		this.messageInput.style.height = "53px";
 
-		this.messagesContainer.current.scrollTop = this.messagesContainer.current.scrollHeight;
+		// this.messagesContainer.current.scrollTop = this.messagesContainer.current.scrollHeight;
 	}
 	render() {
 		const { messages, message, someoneTyping, members } = this.state;
@@ -145,7 +157,13 @@ class Chat extends Component {
 							<Loading />
 						) : (
 							<>
-								<PageTopbar title={chat.name} />
+								<Heading
+									size={4}
+									className="text-grey chat-name p-y-xs"
+									isMarginless
+								>
+									{chat.name}
+								</Heading>
 								<Messages
 									messages={messages}
 									user={this.user}
@@ -208,4 +226,4 @@ const mapStateToProps = state => ({
 export default connect(
 	mapStateToProps,
 	{ getChat }
-)(withRouter(withSidebar(Chat)));
+)(withRouter(withLayout(Chat)));

@@ -16,8 +16,8 @@ const Messages = forwardRef(({ messages, user }, ref) => {
 							</div>
 						</div>
 					) : (
-						<div className="message-wrapper">
-							<div key={i + message.user._id} className="message recieved">
+						<div className="message-wrapper" key={i + message.user._id}>
+							<div className="message recieved">
 								<p className="message-content">{message.content}</p>
 								<p className="timestamp">
 									{formatTimeStamp(message.timestamp)}

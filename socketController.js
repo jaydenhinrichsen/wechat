@@ -28,7 +28,7 @@ const socketController = io => {
 			} else {
 				chats[data] = [connections[socket.id]];
 			}
-
+			console.log(data, chats);
 			currentChat = data;
 			socket.join(data);
 			io.to(data).emit("chat_members", chats[data]);
@@ -40,10 +40,9 @@ const socketController = io => {
 			socket.broadcast.to(currentChat).emit("message", data);
 			socket.broadcast.to(currentChat).emit("someone_stopped_typing", user);
 
-			console.log(data);
 			Chat.findByIdAndUpdate(toObjectId(currentChat), {
 				$push: { messages: data }
-			});
+			}).then(chat => console.log(chat));
 		});
 
 		// Handle when the user starts typing
@@ -87,6 +86,7 @@ const socketController = io => {
 
 			socket.broadcast.to(currentChat).emit("chat_members", chats[currentChat]);
 			delete connections[socket.id];
+			socket.close;
 		});
 	});
 };

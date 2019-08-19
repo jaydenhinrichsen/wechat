@@ -1,31 +1,29 @@
 import React, { Component } from "react";
 // Components
-import Sidebar from "components/Sidebar";
 // Styles
 import "./containers.scss";
-import Footer from "components/Footer";
+import Header from "components/Header";
 /**
- * withSidebar
+ * withLayout
  *
  * A Higher Order Component that renders a component with a sidebar
  *
  * @param {object} WrappedComponent the view component that we wish to render with a sidebar
  */
-const withSidebar = WrappedComponent => {
+const withLayout = WrappedComponent => {
 	return class ComponentContainer extends Component {
 		render() {
 			return (
 				<div className="view">
-					<Sidebar />
-
-					<div className="view-with-sidebar">
-						<WrappedComponent {...this.props} />
-						<Footer />
-					</div>
+					{/* <Sidebar /> */}
+					<Header />
+					{/* <div className="view-with-sidebar"> */}
+					<WrappedComponent {...this.props} />
+					{/* </div> */}
 				</div>
 			);
 		}
 	};
 };
 
-export default withSidebar;
+export default withLayout;

@@ -30,7 +30,7 @@ const Heading = ({ size, children, className, weight, isMarginless }) => {
 };
 
 Heading.propTypes = {
-	children: PropTypes.any.isRequired,
+	children: PropTypes.any,
 	isMarginless: PropTypes.bool,
 	size: PropTypes.number,
 	weight: PropTypes.number,
