@@ -39,6 +39,5 @@ $ npm run dev
 
 ## Improvements & Future Features
 * Optimize the data that is transfered through socket connections for improved scalabilty and performance
-* 
 
 
