@@ -1,12 +1,17 @@
-# websockets-chat-app
+# WeChat
 
-A live chat application
+A live chat application with authentication.
 
 [Click here to view a live-demo](https://websockets-chat-app.herokuapp.com/)
 
 ## Overview
-Send and receive messages in real time using websockets. Create chat rooms with multiple connected users.
+WeChat is a simple chat application built using Socket.io, ReactJS, Redux, Nodejs, and MongoDB allowing users to signup/signin and create 'chat rooms'. These chat rooms can have multiple users sending and receiving messages in real time. These messages are then saved to a MongoDB database and retreived when a user first joins a chat room. 
 
+## Project Goals
+ * Gain a deeper understand of how websockets interact with React
+ * Implement an authentication strategy using json webtokens
+ * Create the UI without the help of a framework to push my CSS skills further
+ 
 ## Usage and Installation
 ### Installation
 1) Clone the repo using git CLI
@@ -28,13 +33,12 @@ $ npm run dev
 * Node.js
 * Express
 * React
-* Bulma/Bloomer UI library
 * Node-sass
 * Socket.io
+* Redux
 
 ## Improvements & Future Features
 * Optimize the data that is transfered through socket connections for improved scalabilty and performance
-* Link a database to store users, chats, and messages, for persistent data storage
-* Add notifications -> when a room a user has joined receives an event, notify the user via a notification
-* Add authentication, user registration/login
-* Implement Redux for global state management
+* 
+
+
