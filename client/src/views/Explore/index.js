@@ -8,6 +8,8 @@ import paths from "constants/paths";
 // Actions
 import { getChats } from "actions/chatActions";
 
+// Styles
+import "./index.scss";
 // Containers
 import withSidebar from "containers/withSidebar";
 
@@ -40,7 +42,12 @@ class Explore extends Component {
 					</Button>
 				</PageTopbar>
 				<div className="p-md">
-					<List chats={chats} loading={loading} loaded={loaded} />
+					<List
+						chats={chats}
+						loading={loading}
+						loaded={loaded}
+						history={this.props.history}
+					/>
 				</div>
 			</Page>
 		);

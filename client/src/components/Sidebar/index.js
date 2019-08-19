@@ -4,13 +4,14 @@ import { connect } from "react-redux";
 import { withRouter } from "react-router-dom";
 // Paths
 import paths from "constants/paths";
-
+// Actions
 // Styles
 import "./index.scss";
 
 // Components
 import Links from "./Links";
 import { Level, LevelSide } from "components/Layout";
+import { logoutUser } from "actions/authActions";
 /**
  * Sidebar
  *
@@ -23,7 +24,6 @@ class Sidebar extends Component {
 		super(props);
 		this.user = this.props.auth.user._id;
 		this.topLinks = [{ ...paths.explore }];
-		this.bottomLinks = [{ ...paths.settings }];
 
 		this.state = {
 			smallView: false,
@@ -70,11 +70,13 @@ class Sidebar extends Component {
 						<p className="is-size-4">WeChat</p>
 					</div>
 					<Links position="top" links={this.topLinks} current={pathname} />
-					<Links
-						position="bottom"
-						links={this.bottomLinks}
-						current={pathname}
-					/>
+					<ul className="links bottom-links">
+						<li className="link">
+							<a href="/" onClick={() => this.props.logoutUser()}>
+								Logout
+							</a>
+						</li>
+					</ul>
 				</div>
 			</div>
 		);
@@ -82,6 +84,7 @@ class Sidebar extends Component {
 }
 
 Sidebar.propTypes = {
+	logoutUser: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired
 };
@@ -93,5 +96,5 @@ const mapStateToProps = state => ({
 
 export default connect(
 	mapStateToProps,
-	{}
+	{ logoutUser }
 )(withRouter(Sidebar));

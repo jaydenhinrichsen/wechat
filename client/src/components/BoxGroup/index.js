@@ -8,12 +8,12 @@ import "./index.scss";
 
 // FramerMotion Animations
 const container = {
-	hidden: { scale: 0 },
+	hidden: { opacity: 0 },
 	show: {
 		opacity: 1,
-		scale: 1,
+
 		transition: {
-			staggerChildren: 0.1
+			staggerChildren: 0.05
 		}
 	}
 };

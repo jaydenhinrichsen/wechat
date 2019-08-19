@@ -1,0 +1,20 @@
+.chat-item {
+	overflow-wrap: break-word;
+	cursor: pointer;
+	.level-left {
+		flex-wrap: wrap;
+		.level-item {
+			flex-wrap: wrap;
+			.chat-item-title {
+				word-wrap: break-word;
+				display: inline-block;
+			}
+		}
+	}
+}
+
+.chat-item:hover {
+	.chat-item-title {
+		text-decoration: underline;
+	}
+}

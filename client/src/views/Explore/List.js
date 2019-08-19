@@ -14,15 +14,23 @@ import BoxGroup from "components/BoxGroup";
 import Box from "components/Box";
 import Heading from "components/Heading";
 
-const List = ({ chats, loading, loaded }) => {
+const List = ({ chats, loading, loaded, history }) => {
 	if (!isEmpty(chats) && loaded && !loading) {
 		return (
 			<BoxGroup>
 				{chats.map(chat => (
-					<Box key={chat._id}>
+					<Box
+						key={chat._id}
+						className="chat-item"
+						onClick={() => history.push(`${paths.chat.path}/${chat._id}`)}
+					>
 						<Level>
 							<LevelSide side="left">
-								<Heading className="is-marginless" size={4} weight={500}>
+								<Heading
+									className="is-marginless chat-item-title"
+									size={4}
+									weight={500}
+								>
 									{chat.name}
 								</Heading>
 								<p className="is-size-7 text-grey">{chat.category.name}</p>
