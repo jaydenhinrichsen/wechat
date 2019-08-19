@@ -5,14 +5,12 @@ const Footer = () => {
 	return (
 		<div className="footer">
 			<div className="footer-left">
-				<a className="is-size-7" href="/">
+				<a
+					className="is-size-7"
+					href="https://github.com/jaydenhinrichsen/wechat"
+				>
+					<i className="fab fa-github" />
 					Github
-				</a>
-				<a className="is-size-7" href="/">
-					Overview
-				</a>
-				<a className="is-size-7" href="/">
-					About
 				</a>
 			</div>
 			<div className="footer-right" />
