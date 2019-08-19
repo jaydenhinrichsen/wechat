@@ -17,7 +17,7 @@ const withSidebar = WrappedComponent => {
 				<div className="view">
 					<Sidebar />
 
-					<div className="view-with-layout">
+					<div className="view-with-sidebar">
 						<WrappedComponent {...this.props} />
 					</div>
 				</div>

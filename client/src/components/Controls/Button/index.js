@@ -4,7 +4,16 @@ import classNames from "classnames";
 
 // Styles
 import "./index.scss";
-
+/**
+ * Button
+ *
+ * @param {any} children
+ * @param {boolean} isOutlined
+ * @param {string} isColor
+ * @param {string} className
+ * @param {boolean} isFullwidth
+ * @param {any} rest
+ */
 const Button = ({
 	children,
 	isOutlined,
@@ -13,6 +22,7 @@ const Button = ({
 	isFullwidth,
 	...rest
 }) => {
+	// Render an anchor element if an href prop is recieved
 	if (rest.href) {
 		return (
 			<a

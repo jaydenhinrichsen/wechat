@@ -5,7 +5,7 @@
 	min-height: 100vh;
 	position: relative;
 
-	.view-with-layout {
+	.view-with-sidebar {
 		width: 100%;
 		min-height: 100%;
 		z-index: 1;
@@ -18,7 +18,7 @@
 @media screen and (max-width: 600px) {
 	.view {
 		flex-direction: column;
-		.view-with-layout {
+		.view-with-sidebar {
 			flex-grow: 2;
 		}
 	}

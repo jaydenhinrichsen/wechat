@@ -11,7 +11,6 @@ import "./index.scss";
 
 // Actions
 import { createChat } from "actions/chatActions";
-import { getCategories, createCategory } from "actions/categoryActions";
 
 // Components
 import { Page } from "components/Layout";
@@ -32,10 +31,6 @@ class NewChat extends Component {
 		};
 	}
 
-	componentDidMount() {
-		this.props.getCategories();
-	}
-
 	handleChange(name, value) {
 		this.setState({ [name]: value });
 	}
@@ -47,9 +42,8 @@ class NewChat extends Component {
 		this.props.history.push("/explore");
 	}
 	render() {
-		const { categories } = this.props.categories;
 		return (
-			<>
+
 				<Page centerX centerY isFullheight>
 					<Form
 						user={this.user}
@@ -58,27 +52,23 @@ class NewChat extends Component {
 						handleSubmit={e => this.handleSubmit(e)}
 					/>
 				</Page>
-			</>
+	
 		);
 	}
 }
 
 NewChat.propTypes = {
 	createChat: PropTypes.func.isRequired,
-	getCategories: PropTypes.func.isRequired,
-	createCategory: PropTypes.func.isRequired,
 	auth: PropTypes.object.isRequired,
-	categories: PropTypes.object.isRequired,
 	errors: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
 	auth: state.auth,
-	categories: state.categories,
 	errors: state.errors
 });
 
 export default connect(
 	mapStateToProps,
-	{ createChat, getCategories, createCategory }
+	{ createChat,  }
 )(withRouter(withSidebar(NewChat)));
