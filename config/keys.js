@@ -1,4 +1,4 @@
 module.exports = {
-	mongoURI: "mongodb://admin:abc123@ds261817.mlab.com:61817/websockets_chat",
+	mongoURI: "mongodb://admin:abc123@ds211829.mlab.com:11829/chatapp",
 	secretOrKey: "secret"
 };
