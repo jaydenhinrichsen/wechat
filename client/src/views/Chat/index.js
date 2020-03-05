@@ -38,7 +38,7 @@ class Chat extends Component {
 
 		this.user = this.props.auth.user;
 		this.chat = this.props.match.params.chat;
-		this.socket = io("http://localhost:5000", {
+		this.socket = io("https://websockets-chat-app.herokuapp.com", {
 			query: `user=${JSON.stringify(this.user)}`
 		});
 
