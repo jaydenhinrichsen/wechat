@@ -3,6 +3,7 @@
 A live chat application with authentication.
 
 [Click here to view a live-demo](https://websockets-chat-app.herokuapp.com/)
+![](wechat-demo.gif)
 
 ## Overview
 WeChat is a simple chat application built using Socket.io, ReactJS, Redux, Nodejs, and MongoDB allowing users to signup/signin and create 'chat rooms'. These chat rooms can have multiple users sending and receiving messages in real time. These messages are then saved to a MongoDB database and retreived when a user first joins a chat room. 
