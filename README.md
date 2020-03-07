@@ -38,7 +38,9 @@ $ npm run dev
 * Socket.io
 * Redux
 
-## Improvements & Future Features
-* Optimize the data that is transfered through socket connections for improved scalabilty and performance
+## Improvements, Fixes, & Future Features
+* Refactor class based components into functional components.
+* Refactor the socket controller and clean up the server side code/folder structure.
+* Fix issue with the same person being added to a room more than once.
 
 
